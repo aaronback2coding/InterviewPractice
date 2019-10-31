@@ -1,5 +1,221 @@
 package aaron.javaramp;
 
+//-----------------------------------------------------------------------------------------------------------------------------
+// replace spaces in a string with %20
+//-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+    }
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------
+// write a method to decide if two strings are anagrams or not
+//
+//"rail safety" = "fairy tales"
+//        "roast beef" = "eat for BSE" [3]
+//        "debit card" = "bad credit"
+//        "George Bush" = "he bugs Gore"
+//        "Justin Timberlake" = "I’m a jerk but listen"
+//        "New York Times" = "monkeys write"
+//        "Church of Scientology" = "rich-chosen goofy cult"
+//        "McDonald's restaurants" = "Uncle Sam's standard rot"
+//-----------------------------------------------------------------------------------------------------------------------------
+
+//public class Main {
+//    public static boolean isAnagram(String str1, String str2) {
+//        int[] charCount1 = new int[256];
+//        int[] charCount2 = new int[256];
+//
+//        for(int i=0; i<str1.length(); i++){
+//            charCount1[Character.toLowerCase(str1.charAt(i))] ++;
+//        }
+//        for(int i=0; i<str2.length(); i++){
+//            charCount2[Character.toLowerCase(str2.charAt(i))] ++;
+//        }
+//
+//        for (int i = 0; i<256; i++) {
+//            if(charCount1[i] != charCount2[i]) {
+//                if((char)i != ' ')
+//                    return false;
+//            }
+//        }
+//        return true;
+//    }
+//    public static void checkAndPrint(String str1, String str2) {
+//        System.out.println("-------------");
+//        System.out.println(str1);
+//        System.out.println(str2);
+//        System.out.println(isAnagram(str1, str2));
+//    }
+//    public static void main(String[] args) {
+//        checkAndPrint( "roast beef", "eat for BSE");
+//        checkAndPrint( "debit card", "bad credit");
+//        checkAndPrint( "roast", "eat for BSE");
+//        checkAndPrint( "debit card", "bad ");
+//
+//
+//    }
+//}
+
+
+//-----------------------------------------------------------------------------------------------------------------------------
+// remove dup characters in a string wo/ using additional buffer.
+//-----------------------------------------------------------------------------------------------------------------------------
+//
+//public class Main {
+//    //256 boolean cost, n time cost
+//    public static String removeDup(String inputStr) {
+//        char[] charArray = inputStr.toCharArray();
+//        int length = inputStr.length();
+//
+//        // mark all dup as 0
+//        boolean[] charExistArr = new boolean[256];
+//        int offset =0;
+//        for (int i = 0; i< length; i++)
+//        {
+//            boolean dup = false;
+//            if(!charExistArr[charArray[i]]) {
+//                charExistArr[charArray[i]] = true;
+//            } else {
+//                dup = true;
+//            }
+//
+//            // move if not dup
+//            if (dup) {
+//                offset ++;
+//            } else {
+//                if (offset == 0) {
+//                    continue;
+//                }
+//                charArray[i-offset] = charArray[i];
+//            }
+//        }
+//        String returnStr = new String(charArray, 0, length - offset);
+//        return returnStr;
+//    }
+//
+//    //low space, n2 cost
+//    public static String removeDup2(String inputStr) {
+//        char[] charArray = inputStr.toCharArray();
+//        int length = inputStr.length();
+//
+//        // mark all dup as 0
+//        int offset =0;
+//        for (int i = 0; i< length; i++)
+//        {
+//            // is it dup
+//            boolean dup = false;
+//            for (int j=0; j<i; j++)
+//            {
+//                if(charArray[i] == charArray[j]) {
+//                    dup = true;
+//                    break;
+//                }
+//            }
+//
+//            // move if not dup
+//            if (dup) {
+//                offset ++;
+//            } else {
+//                if (offset == 0) {
+//                    continue;
+//                }
+//                charArray[i-offset] = charArray[i];
+//            }
+//        }
+//        String returnStr = new String(charArray, 0, length - offset);
+//        return returnStr;
+//    }
+//
+//
+////        // mark all dup as 0
+////        for (int i = 0; i< length; i++)
+////        {
+////            for (int j=0; j<i; j++)
+////            {
+////                if(charArray[i] == charArray[j])
+////                    charArray[i] = 0;
+////            }
+////        }
+////
+////        //move over
+////        int offset =0;
+////        for (int i=0; i< length; i++)
+////        {
+////            if (charArray[i] == 0) {
+////                offset ++;
+////            } else {
+////                if (offset == 0) {
+////                    continue;
+////                }
+////                charArray[i-offset] = charArray[i];
+////            }
+////        }
+//
+//
+//
+//    public static void main(String[] args) {
+//
+//
+//        String inputStr = "aaacad";
+//        System.out.println(removeDup(inputStr));
+//
+//        inputStr = "aba";
+//        System.out.println(removeDup(inputStr));
+//
+//        inputStr = "";
+//        System.out.println(removeDup(inputStr));
+//
+//        inputStr = "aaaa";
+//        System.out.println(removeDup(inputStr));
+//        inputStr = "aaaabbb";
+//        System.out.println(removeDup(inputStr));
+//    }
+//}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------
+// revert a c style string
+//-----------------------------------------------------------------------------------------------------------------------------
+
+//public class Main {
+//
+//    public static String reverse(String inputStr) {
+//        char[] charArray = inputStr.toCharArray();
+//        int length = inputStr.length();
+//
+//        for (int i = 0; i< length / 2; i++)
+//        {
+//            char temp = charArray[i];
+//            charArray[i] = charArray[length - 1 - i];
+//            charArray[length - 1 - i] = temp;
+//        }
+//
+//        String returnStr = new String(charArray);
+//        return returnStr;
+//    }
+//    public static void main(String[] args) {
+//        String inputStr = "abcd";
+//        System.out.println(reverse(inputStr));
+//
+//
+//        inputStr = "abc";
+//        System.out.println(reverse(inputStr));
+//
+//        inputStr = "";
+//        System.out.println(reverse(inputStr));
+//    }
+//}
+//
+//
 
 //-----------------------------------------------------------------------------------------------------------------------------
 // String vs. string buffer
@@ -155,3 +371,13 @@ package aaron.javaramp;
 //
 //    }
 //}
+
+
+
+
+
+
+
+
+
+
