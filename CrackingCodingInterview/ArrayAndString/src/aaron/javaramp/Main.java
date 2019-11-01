@@ -1,43 +1,131 @@
 package aaron.javaramp;
 
 
+
+
+//-----------------------------------------------------------------------------------------------------------------------------
+//Assume you have a method isSubstring which checks if one word is a substring of another
+// Given two strings,s1 and s2,write code to check if s2 is a rotation of s1 using only one call to isSubstring
+// (i e , “waterbottle” is a rotation of “erbottlewat”)
+//-----------------------------------------------------------------------------------------------------------------------------
+
+
+//
+//public class Main {
+//
+//    public static boolean isSubstring (String str, String substring) {
+//        for (int i = 0; i<str.length() - substring.length() + 1; i++) {
+//
+//            String temp = str.substring(i, i+substring.length());
+//            if (temp.compareTo(substring) == 0) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    public static boolean isRotationString (String str, String rotationStr) {
+//        String doubleString = rotationStr + rotationStr;
+//
+//        if (isSubstring(doubleString, str)) {
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public static void main(String[] args) {
+//
+//        String str = "waterbottle";
+//        String rotationStr = "bottlewater";
+//        System.out.println(".............................");
+//        System.out.println(str);
+//        System.out.println(rotationStr);
+//        System.out.println(isRotationString(str, rotationStr));
+//
+//    }
+//}
+//
+
 //-----------------------------------------------------------------------------------------------------------------------------
 // Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0
 //-----------------------------------------------------------------------------------------------------------------------------
 
-
-
-public class Main {
-
-    public static void print(int[][] m, int width, int height){
-        if (m ==null) {
-            return;
-        }
-        System.out.println("-------------------");
-        for (int y = 0; y < height; y++ ) {
-            StringBuilder sb = new StringBuilder();
-
-            for (int x=0; x < width; x++) {
-                sb.append(m[y][x]);
-                sb.append(", ");
-            }
-            System.out.println(sb);
-
-        }
-    }
-    public static void main(String[] args) {
-        int[][] m = {
-                { 1, 2, 3, 4},
-                { 1, 2, 3, 4},
-                { 1, 2, 3, 4}
-        };
-
-        print(m, 4, 3);
-
-
-
-    }
-}
+//
+//
+//public class Main {
+//
+//    public static void setZero(int[][] m, int width, int height){
+//        if (m ==null) {
+//            return;
+//        }
+//        boolean[] xHasZeroArr = new boolean[width];
+//        boolean[] yHasZeroArr = new boolean[height];
+//
+//        //find
+//        for (int y = 0; y < height; y++ ) {
+//            for (int x=0; x < width; x++) {
+//                if(m[y][x] == 0) {
+//                    xHasZeroArr[x] = true;
+//                    yHasZeroArr[y] = true;
+//                }
+//            }
+//        }
+//
+//        //apply
+//        for (int y = 0; y < height; y++ ) {
+//            if(yHasZeroArr[y]) {
+//                for (int x=0; x < width; x++) {
+//                    m[y][x] = 0;
+//                }
+//            }
+//        }
+//
+//
+//        for (int x = 0; x < width; x++ ) {
+//            if(xHasZeroArr[x]) {
+//                for (int y=0; y < height; y++) {
+//                    m[y][x] = 0;
+//                }
+//            }
+//        }
+//
+//
+//
+//    }
+//
+//
+//    public static void print(int[][] m, int width, int height){
+//        if (m ==null) {
+//            return;
+//        }
+//        System.out.println("-------------------");
+//        for (int y = 0; y < height; y++ ) {
+//            StringBuilder sb = new StringBuilder();
+//
+//            for (int x=0; x < width; x++) {
+//                sb.append(m[y][x]);
+//                sb.append(", ");
+//            }
+//            System.out.println(sb);
+//
+//        }
+//    }
+//    public static void main(String[] args) {
+//        int[][] m = {
+//                { 1, 2, 3, 4},
+//                { 1, 0, 3, 4},
+//                { 1, 2, 3, 4}
+//        };
+//
+//        print(m, 4, 3);
+//
+//        setZero(m, 4, 3);
+//
+//        print(m, 4, 3);
+//
+//
+//    }
+//}
 
 
 //-----------------------------------------------------------------------------------------------------------------------------
