@@ -1,35 +1,198 @@
 package aaron.javaramp;
 
+public class Main {
+
+    public static void main(String[] args) {
+    }
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------------
+// rotate a image by 90 degree. Every image is a NxN matrix. Every pixel is a 4 byte.
+//-----------------------------------------------------------------------------------------------------------------------------
+// challenge: just how to specify code reference to logic correctly and efficiently?
+// tips:
+//  1. abstract shared logic into one place. reduce exposure to human error.
+//  2. reduce complexity into managable pieces through breaking big funciton / calculation into pieces
+//  3. debugging technique - use real examples, visualize expected behavior vs. reality
+
+//
+//class Matrix {
+//    private byte[][] m;
+//    private int n;
+//
+//    public Matrix(int n) {
+//        this.n = n;
+//        this.m = new byte[n][n*4];
+//        for(int i=0; i<n; i++) {
+//            for (int j=0; j<n; j++) {
+//                this.m[i][j*4] = (byte) (i*4 + j);
+//                m[i][j*4 + 1] = (byte) (i*4 + j);
+//                m[i][j*4 + 2] = (byte) (i*4 + j);
+//                m[i][j*4 + 3] = (byte) (i*4 + j);
+//            }
+//        }
+//    }
+//
+//    public void mapping() {
+//        for (int i = 0; i < n-1; i++) {
+//            for (int j= i+1; j<n; j++) {
+//                byte[] temp = new byte[4];
+//                temp[0] = m[i][j*4];
+//                temp[1] = m[i][j*4 + 1];
+//                temp[2] = m[i][j*4 + 2];
+//                temp[3] = m[i][j*4 + 3];
+//                m[i][j*4] =  m[j][i*4];
+//                m[i][j*4 + 1] =  m[j][i*4 + 1];
+//                m[i][j*4 + 2] =  m[j][i*4 + 2];
+//                m[i][j*4 + 3] =  m[j][i*4 + 3];
+//                m[j][i*4] = temp[0];
+//                m[j][i*4 + 1] = temp[1];
+//                m[j][i*4 + 2] = temp[2];
+//                m[j][i*4 + 3] = temp[3];
+//            }
+//        }
+//    }
+//
+//    private void copy(int originX, int originY, int targetX, int targetY) {
+//        System.arraycopy(m[originY], (originX) * 4, m[targetY], targetX *4, 4);
+//    }
+//
+//    private void copyToTemp(int originX, int originY, byte[] temp) {
+//        if(temp == null) {
+//            return;
+//        }
+//        System.arraycopy(m[originY], (originX) * 4, temp, 0, 4);
+//    }
+//    private void copyfromTemp(int targetX, int targetY, byte[] temp) {
+//        if(temp == null) {
+//            return;
+//        }
+//        System.arraycopy(temp, 0, m[targetY], targetX * 4, 4);
+//    }
+//
+//    public void rotate90() {
+//        for(int layer = 0; layer <n/2; layer++) {
+//            for (int i = 0; i < n -layer*2-1; i++) {
+//                int x, y;
+//                byte[] temp = new byte[4];
+//
+//                //0->3
+//                //5
+//                copyToTemp(
+//                        layer + i,
+//                        layer,
+//                        temp
+//                );
+//
+//                //12->0
+//                //9
+//                copy(
+//                        layer,
+//                        n-1-layer-i,
+//                        layer +i,
+//                        layer
+//                );
+//
+//                //15->12
+//                //10
+//                copy(
+//                        n-layer-1-i,
+//                        n-1-layer,
+//                        layer,
+//                        n-1-layer-i
+//                  );
+//
+//
+//                //3 ->15
+//                //6
+//                copy(
+//                        n-layer-1,
+//                        layer+i,
+//                        n-layer-1-i,
+//                        n-1-layer
+//                        );
+//
+//                copyfromTemp(
+//                        n-layer-1,
+//                        layer+i,
+//                        temp
+//                );
+//
+//            }
+//        }
+//
+//    }
+//
+//
+//    public void print() {
+//        System.out.println("............................");
+//        for (int i = 0; i < n; i++) {
+//            StringBuilder sb = new StringBuilder();
+//            for(int j=0; j < n * 4; j++)
+//            {
+//                sb.append(m[i][j]);
+//                sb.append(", ");
+//                if (j%4 == 3) {
+//                    sb.append("   ");
+//                }
+//            }
+//            System.out.println(sb);
+//
+//
+//        }
+//    }
+//}
+//
+//public class Main {
+//
+//    public static void main(String[] args) {
+//        Matrix m = new Matrix(4);
+//
+//        m.print();
+//        m.rotate90();
+//        m.print();
+//        m.rotate90();
+//        m.print();
+//        m.rotate90();
+//        m.print();
+//        m.rotate90();
+//        m.print();
+//
+//
+//
+//    }
+//}
+
+
 //-----------------------------------------------------------------------------------------------------------------------------
 // replace spaces in a string with %20
 //-----------------------------------------------------------------------------------------------------------------------------
 
-
-
-public class Main {
-
-    public static String myreplaceAll(String str, char inputChar, String replaceStr) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < str.length(); i++)
-        {
-            if( str.charAt(i) == inputChar ) {
-                sb.append(replaceStr);
-            } else {
-                sb.append(str.charAt(i));
-            }
-        }
-        return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        String str = "long long time ago.";
-        System.out.println(str.replaceAll(" ", "%20"));
-        System.out.println(myreplaceAll(str, ' ', "%20"));
-
-
-
-    }
-}
+//public class Main {
+//
+//    public static String myreplaceAll(String str, char inputChar, String replaceStr) {
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < str.length(); i++)
+//        {
+//            if( str.charAt(i) == inputChar ) {
+//                sb.append(replaceStr);
+//            } else {
+//                sb.append(str.charAt(i));
+//            }
+//        }
+//        return sb.toString();
+//    }
+//
+//    public static void main(String[] args) {
+//        String str = "long long time ago.";
+//        System.out.println(str.replaceAll(" ", "%20"));
+//        System.out.println(myreplaceAll(str, ' ', "%20"));
+//
+//
+//
+//    }
+//}
 
 //-----------------------------------------------------------------------------------------------------------------------------
 // write a method to decide if two strings are anagrams or not
