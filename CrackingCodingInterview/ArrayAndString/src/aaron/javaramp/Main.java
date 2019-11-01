@@ -8,7 +8,24 @@ package aaron.javaramp;
 
 public class Main {
 
+    public static String myreplaceAll(String str, char inputChar, String replaceStr) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < str.length(); i++)
+        {
+            if( str.charAt(i) == inputChar ) {
+                sb.append(replaceStr);
+            } else {
+                sb.append(str.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
+        String str = "long long time ago.";
+        System.out.println(str.replaceAll(" ", "%20"));
+        System.out.println(myreplaceAll(str, ' ', "%20"));
+
 
 
     }
