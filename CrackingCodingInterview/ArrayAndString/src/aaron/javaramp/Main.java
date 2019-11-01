@@ -1,8 +1,41 @@
 package aaron.javaramp;
 
+
+//-----------------------------------------------------------------------------------------------------------------------------
+// Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0
+//-----------------------------------------------------------------------------------------------------------------------------
+
+
+
 public class Main {
 
+    public static void print(int[][] m, int width, int height){
+        if (m ==null) {
+            return;
+        }
+        System.out.println("-------------------");
+        for (int y = 0; y < height; y++ ) {
+            StringBuilder sb = new StringBuilder();
+
+            for (int x=0; x < width; x++) {
+                sb.append(m[y][x]);
+                sb.append(", ");
+            }
+            System.out.println(sb);
+
+        }
+    }
     public static void main(String[] args) {
+        int[][] m = {
+                { 1, 2, 3, 4},
+                { 1, 2, 3, 4},
+                { 1, 2, 3, 4}
+        };
+
+        print(m, 4, 3);
+
+
+
     }
 }
 
