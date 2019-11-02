@@ -28,9 +28,48 @@ class LinkList<T> {
         lastNode().next = node;
     }
     public void print() {
-        Node cur = head;
+        System.out.println("..........................................");
+        Node<T> cur = head;
         while (cur != null) {
             System.out.println(cur.data);
+            cur = cur.next;
+        }
+    }
+    public void removeDuplicates() {
+        HashSet<T> hashset = new HashSet<T>();
+        Node<T> cur = head;
+        Node<T> prev = null;
+        while (cur != null) {
+            if(!hashset.add(cur.data)) {
+                //if duplicates, remove!
+                prev.next = cur.next;
+                cur.next = null;
+                cur = prev.next;
+            } else {
+                prev = cur;
+                cur = cur.next;
+            }
+        }
+    }
+
+    public void removeDuplicates2() {
+        Node<T> cur = head;
+        Node<T> prev = null;
+        while (cur != null) {
+            Node<T> curRunner = cur.next;
+            Node<T> prevRunner = cur;
+            while(curRunner != null) {
+                if(cur.data.equals(curRunner.data)) {
+                    //if duplicates, remove!
+                    prevRunner.next = curRunner.next;
+                    curRunner.next = null;
+                    curRunner = prevRunner.next;
+                } else {
+                    prevRunner = curRunner;
+                    curRunner = curRunner.next;
+                }
+            }
+            prev = cur;
             cur = cur.next;
         }
     }
@@ -45,17 +84,28 @@ class Node<T> {
     public Node(T data) {
         this.data = data;
         this.next = null;
-
     }
+
+
+
 }
 
 public class Main {
 
     public static void main(String[] args) {
         LinkList<String> ll = new LinkList<String> ();
-        ll.append("a");
+        ll.append("abc");
         ll.append("b");
+        ll.append("e");
+        ll.append("a");
+        ll.append("d");
+        ll.append("e");
+        ll.append("abc");
+
         ll.print();
+        ll.removeDuplicates2();
+        ll.print();
+
 
     }
 }
