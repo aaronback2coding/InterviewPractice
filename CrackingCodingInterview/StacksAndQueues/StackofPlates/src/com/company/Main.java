@@ -7,18 +7,21 @@ package com.company;
 //        SetOfStacks should be composed of several stacks, and should create a new stack once the previous one exceeds capacity   S
 //        etOfStacks push() and SetOfStacks pop() should behave identically to a single stack (that is,
 //        pop() should return the same values as it would if there were just a single stack)
+// Follow up:
+//          Implement a function popAt(int index) which performs a pop operation on a specific sub-stack
 //------------------------------------------------------------------------------------------
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 class SetofStacks {
     int stackMaxCapacity = 5;
     Stack<Integer> currentStack;
-    Stack<Stack<Integer>> stackofStacks;
+    LinkedList<Stack<Integer>> stackofStacks;
 
     public SetofStacks(int stackMaxCapacity) {
         this.stackMaxCapacity = stackMaxCapacity;
-        this.stackofStacks = new Stack<Stack<Integer>>();
+        this.stackofStacks = new LinkedList<Stack<Integer>>();
         this.currentStack = new Stack<>();
         stackofStacks.push(this.currentStack);
     }
@@ -40,6 +43,15 @@ class SetofStacks {
         return currentStack.pop();
     }
 
+    public int popAt(int stackIndex) {
+        Stack<Integer> tempCurStack = stackofStacks.get(stackIndex);
+        int result = tempCurStack.pop();
+        if (tempCurStack.empty()) {
+            stackofStacks.remove(stackIndex);
+        }
+        return result;
+    }
+
     void print() {
         for(Stack<Integer> stack: stackofStacks) {
             System.out.println(stack);
@@ -57,8 +69,8 @@ public class Main {
             ss.push(i);
         }
         ss.print();
-        for(int i = 0; i < 19; i++) {
-            ss.pop();
+        for(int i = 0; i < 6; i++) {
+            ss.popAt(1);
         }
         ss.print();
 
