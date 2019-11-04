@@ -9,7 +9,7 @@ package com.aaron;
 //          in this case, my implementation: check in every step of the fast runner, if fast runner reaches the slow runner, return, and I compensate that with fast forward the slow runner with extra one step. this works for most cases, but fail when the loop only has two.
 //          in the working implementation, I only check when both fast runner and slow runner actually reach the same spot.
 //          so basically one logic is, fast runner + 1 reach slow runner, than slow runner + 1 should be the result
-//          vs. fast and slow are the same, return. 
+//          vs. fast and slow are the same, return.
 
 import java.util.*;
 
