@@ -58,6 +58,9 @@ public class Main {
     // Sort stack with insert sort, with recurcion
     public static void Merge(int[] arr, int leftStart, int leftEnd, int rightStart, int rightEnd) {
 
+        if(rightEnd < 0 || rightStart <0)
+            return;
+
         int leftSize = leftEnd - leftStart + 1;
         int rightSize = rightEnd - rightStart + 1;
         int[] buffer = new int[leftSize + rightSize];
@@ -103,6 +106,48 @@ public class Main {
 
     }
 
+    private static int powerof2(int i) {
+        return (int) Math.pow(2, i);
+    }
+
+    // the iteration version
+    public static void MergeSort2(int[] arr, int start, int end) {
+        int length = end - start + 1;
+        int i = 0;
+        while (powerof2(i) < length * 2) {
+            int offset, leftStart, leftEnd, rightStart, rightEnd;
+            int j = 0;
+            while (true) {
+                offset = powerof2(i+1) * j;
+                leftStart = 0 + offset;
+                leftEnd = powerof2(i) - 1 + offset;
+                rightStart = powerof2(i) + offset;
+                rightEnd = powerof2(i+1) - 1 + offset;
+
+                if (end < leftStart) {
+                    break;
+                } else if (end < leftEnd) {
+                    leftEnd = end;
+                    rightStart = -1;
+                    rightEnd = -1;
+                } else if (end < rightStart) {
+                    rightStart = -1;
+                    rightEnd = -1;
+                } else if (end < rightEnd) {
+                    rightEnd = end;
+                }
+
+                Merge(arr, leftStart, leftEnd, rightStart, rightEnd);
+                j++;
+            }
+            i++;
+        }
+
+
+    }
+
+
+
     public static void main(String[] args) {
 
 //        Stack<Integer> us = new Stack<>();
@@ -123,6 +168,13 @@ public class Main {
         int[] arr = {3, 1, 7, 2, 9, 6, 8, 9, 100, 2};
         MergeSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
+
+        int[] arr3 = {0, 1, 2, 3, 4};
+        int[] arr2 = {3, 1, 7, 2, 9, 6, 8, 9, 100, 2};
+
+        MergeSort2(arr2, 0, arr2.length - 1);
+        System.out.println(Arrays.toString(arr2));
+
 
 
     }
