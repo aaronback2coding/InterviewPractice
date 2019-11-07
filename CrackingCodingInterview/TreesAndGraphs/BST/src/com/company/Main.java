@@ -56,6 +56,43 @@ class Tree<T> {
         root = _buildBST(arr, 0, length - 1);
     }
 
+    public LinkedList<LinkedList<T>> getNodesPerDepth() {
+        if(root == null)
+            return null;
+
+        Queue<Node<T>> queue = new LinkedList<Node<T>>();
+        LinkedList<LinkedList<T>> result = new LinkedList<LinkedList<T>>();
+        queue.add(root);
+        int depth = 0;
+        root.y = 0;
+
+        LinkedList<T> curList = new LinkedList<T>();
+        result.add(curList);
+
+        while (!queue.isEmpty()) {
+
+            Node<T> cur = queue.remove();
+            if(cur.y != depth) {
+                curList = new LinkedList<T>();
+                result.add(curList);
+                depth ++;
+            }
+            curList.add(cur.val);
+
+            if(cur.left != null) {
+                cur.left.y = cur.y + 1;
+                queue.add(cur.left);
+            }
+            if(cur.right != null) {
+                cur.right.y = cur.y + 1;
+                queue.add(cur.right);
+            }
+        }
+        return result;
+
+    }
+
+
     private String scan(ArrayList<nodePrintInfo<T>> arr) {
         StringBuilder sb = new StringBuilder();
         int i = 0;
@@ -244,10 +281,18 @@ public class Main {
 //        tree2.root.right.right.right.right = new Node<>(5);
 //        tree2.printTree();
 //
-        Integer[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        Integer[] arr = {0, 1, 2, 3, 4, 5, 6};
         Tree<Integer> tree = new Tree<>();
         tree.buildBST(arr);
         tree.printTree();
+
+        LinkedList<LinkedList<Integer>> ll = tree.getNodesPerDepth();
+
+        for(LinkedList<Integer> nodesperDepth: ll) {
+            System.out.println(nodesperDepth);
+        }
+
+
 
     }
 }
