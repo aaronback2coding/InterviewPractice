@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5ba2309-78d5-447c-ba83-ba7d034624cc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../StacksAndQueues/SortStack/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StacksAndQueues/SortStack/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f5ba2309-78d5-447c-ba83-ba7d034624cc" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/aaron/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+            <state relative-caret-position="375">
+              <caret line="25" column="42" lean-forward="true" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1007#1008#0" expanded="true" />
@@ -61,8 +59,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="355" />
-    <option name="y" value="409" />
+    <option name="x" value="279" />
+    <option name="y" value="195" />
     <option name="width" value="3360" />
     <option name="height" value="1800" />
   </component>
@@ -78,6 +76,9 @@
       <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -122,15 +123,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="355" y="409" width="3360" height="1800" extended-state="0" />
-    <editor active="true" />
+    <frame x="279" y="195" width="3360" height="1800" extended-state="0" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2498493" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2498493" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -140,7 +140,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32962528" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3998829" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3998829" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -169,8 +169,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/aaron/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+        <state relative-caret-position="375">
+          <caret line="25" column="42" lean-forward="true" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1007#1008#0" expanded="true" />
