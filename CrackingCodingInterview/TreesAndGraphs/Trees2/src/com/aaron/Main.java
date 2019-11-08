@@ -324,6 +324,33 @@ class Tree<T extends Comparable<T>> {
         resetVisited();
     }
 
+    // print post order, implemented with iteration
+    // this depth based search is ideal for loop detection in a tree
+    void printPostOrder() {
+        System.out.println("................");
+        if (root == null)
+            return;
+        Stack<Node<T>> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.empty()) {
+            Node<T> cur = stack.pop();
+            //if not visit, scan and visit
+            if (!cur.visited) {
+                stack.push(cur);
+                if (cur.right != null)
+                    stack.push(cur.right);
+                if (cur.left != null)
+                    stack.push(cur.left);
+                cur.visited = true;
+            } else {
+                // if visited or no children, actual iterate
+                System.out.println(cur.val);
+            }
+        }
+        resetVisited();
+    }
+
+
     private void resetVisited() {
         if (root == null)
             return;
@@ -398,14 +425,20 @@ public class Main {
     }
     public static void main(String[] args) {
 //        // write your code here
-//        Tree<Integer> tree = new Tree<>();
-//        tree.root = new Node<>(1);
-//        tree.root.left = new Node<>(2);
-//        tree.root.right = new Node<>(3);
-//        tree.root.left.left = new Node<>(4);
-//        tree.root.left.right = new Node<>(5);
-//        tree.root.right.left = new Node<>(6);
-//        tree.root.right.right = new Node<>(7);
+        Tree<Integer> tree = new Tree<>();
+        tree.root = new Node<>(1);
+        tree.root.left = new Node<>(2);
+        tree.root.right = new Node<>(3);
+        tree.root.left.left = new Node<>(4);
+        tree.root.left.right = new Node<>(5);
+        tree.root.right.left = new Node<>(6);
+        tree.root.right.right = new Node<>(7);
+
+        tree.print(0);
+        tree.print(1);
+        tree.print(2);
+
+        tree.printPostOrder();
 //        tree.printTree();
 //        System.out.println(tree.isBalanced());
 //
@@ -435,21 +468,21 @@ public class Main {
 //
 //        System.out.println(tree.isBinarySearchTree());
 
-        Tree<Integer> tree = new Tree<>();
-        tree.root = new Node<>(1);
-        tree.root.left = new Node<>(2);
-        tree.root.right = new Node<>(3);
-        tree.root.left.left = new Node<>(4);
-        tree.root.left.right = new Node<>(5);
-        tree.root.right.left = new Node<>(6);
-        tree.root.right.right = new Node<>(7);
-        tree.printTree();
-        tree.fillParents();
-
-        Node<Integer> node;
-        node = tree.root.right.left .getInOrderNeighbor(); //6, expect 3.
-        node = tree.root.right.right.getInOrderNeighbor(); // 7, expect null
-        node = tree.root.getInOrderNeighbor(); // 1, expect 3;
+//        Tree<Integer> tree = new Tree<>();
+//        tree.root = new Node<>(1);
+//        tree.root.left = new Node<>(2);
+//        tree.root.right = new Node<>(3);
+//        tree.root.left.left = new Node<>(4);
+//        tree.root.left.right = new Node<>(5);
+//        tree.root.right.left = new Node<>(6);
+//        tree.root.right.right = new Node<>(7);
+//        tree.printTree();
+//        tree.fillParents();
+//
+//        Node<Integer> node;
+//        node = tree.root.right.left .getInOrderNeighbor(); //6, expect 3.
+//        node = tree.root.right.right.getInOrderNeighbor(); // 7, expect null
+//        node = tree.root.getInOrderNeighbor(); // 1, expect 3;
 
 
 

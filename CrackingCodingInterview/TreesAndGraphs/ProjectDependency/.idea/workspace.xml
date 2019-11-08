@@ -4,6 +4,9 @@
     <list default="true" id="892477c8-8c11-4edc-98cf-02146c14dfd7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/aaron/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aaron/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trees2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Trees2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trees2/out/production/Trees2/com/aaron/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Trees2/out/production/Trees2/com/aaron/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Trees2/src/com/aaron/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Trees2/src/com/aaron/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +40,7 @@
   <component name="ProjectId" id="1TJNOX2bD4qSEQZLaDFSg10YbwM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Trees2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -86,7 +89,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -97,7 +102,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/aaron/Main.java</url>
-          <line>139</line>
+          <line>207</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
