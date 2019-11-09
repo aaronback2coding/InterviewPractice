@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f5ba2309-78d5-447c-ba83-ba7d034624cc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../ProjectDependency/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectDependency/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectDependency3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectDependency3/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +170,7 @@
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43406594" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.43406594" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
