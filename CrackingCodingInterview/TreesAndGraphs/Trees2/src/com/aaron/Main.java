@@ -299,6 +299,33 @@ class Tree<T extends Comparable<T>> {
         System.out.println(scan(scanline));
     }
 
+//     there are two basic operation for every node: exploration vs. actual traveral iteration.
+//     exploration is the act of finding children and putting childen in the execution stack / queue, following certain order
+//     iteration is the action you want to do in this traversal, such as print, search etc.
+//     for preorder, the exploration and iteration is together
+//     for post order and in order, the exploration is done first and then we backtrack to iterate, therefore we can utilize these two for loop detection
+//          if we reach the same node that has been explored before but haven't been executed, then hit a loop
+//          in the parallel case, when we run into a node that has been explored and executed, it means that it has been done by another path and therefore there is no loop.
+
+    // print pre order, implemented with iteration
+    void printPreOrder() {
+        System.out.println("................");
+        if (root == null)
+            return;
+        Stack<Node<T>> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.empty()) {
+            Node<T> cur = stack.pop();
+            // iteration action
+            System.out.println(cur.val);
+            // exploration action
+            if (cur.right != null)
+                stack.push(cur.right);
+            if (cur.left != null)
+                stack.push(cur.left);
+        }
+    }
+
     // print in order, implemented with iteration
     void printInorder() {
         System.out.println("................");
@@ -434,11 +461,22 @@ public class Main {
         tree.root.right.left = new Node<>(6);
         tree.root.right.right = new Node<>(7);
 
-        tree.print(0);
-        tree.print(1);
-        tree.print(2);
+        tree.printTree();
 
+        tree.print(0);// in order
+        tree.printInorder();
+        System.out.println("**********************************");
+
+        tree.print(1);// pre order
+        tree.printPreOrder();
+        System.out.println("**********************************");
+
+        tree.print(2);// post order
         tree.printPostOrder();
+        System.out.println("**********************************");
+
+
+//        tree.printPostOrder();
 //        tree.printTree();
 //        System.out.println(tree.isBalanced());
 //

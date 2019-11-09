@@ -63,8 +63,9 @@ class DependencyGraph {
 
     }
 
-    public boolean includeLoop () {
+// post order based loop detection
 
+    public boolean includeLoop () {
         Stack<Node> stack = new Stack<>();
         for(Node treeroot: trees) {
             stack.push(treeroot);
@@ -88,7 +89,6 @@ class DependencyGraph {
         }
         resetVisited();
         return false;
-
     }
 
     public boolean printDependencyRoute() {
@@ -163,21 +163,21 @@ public class Main {
 //        graph.addEdge(d, c);
 
 //question test case 2
-        Node a = graph.addNode("a");
-        Node b = graph.addNode("b");
-        Node c = graph.addNode("c");
-        Node d = graph.addNode("d");
-        Node e = graph.addNode("e");
-        Node f = graph.addNode("f");
-        Node g = graph.addNode("g");
-        graph.addEdge(f, c);
-        graph.addEdge(f, b);
-        graph.addEdge(f, a);
-        graph.addEdge(c, a);
-        graph.addEdge(b, a);
-        graph.addEdge(b, e);
-        graph.addEdge(a, e);
-        graph.addEdge(d, g);
+//        Node a = graph.addNode("a");
+//        Node b = graph.addNode("b");
+//        Node c = graph.addNode("c");
+//        Node d = graph.addNode("d");
+//        Node e = graph.addNode("e");
+//        Node f = graph.addNode("f");
+//        Node g = graph.addNode("g");
+//        graph.addEdge(f, c);
+//        graph.addEdge(f, b);
+//        graph.addEdge(f, a);
+//        graph.addEdge(c, a);
+//        graph.addEdge(b, a);
+//        graph.addEdge(b, e);
+//        graph.addEdge(a, e);
+//        graph.addEdge(d, g);
 
 
 
@@ -192,20 +192,20 @@ public class Main {
 //        graph.addEdge(c, a);
 
         // parallel test case
-//        Node r = graph.addNode("r");
-//        Node a = graph.addNode("a");
-//        Node b = graph.addNode("b");
-//        Node c = graph.addNode("c");
-//        graph.addEdge(r, a);
-//        graph.addEdge(a, c);
-//        graph.addEdge(r, b);
-//        graph.addEdge(b, c);
+        Node r = graph.addNode("r");
+        Node a = graph.addNode("a");
+        Node b = graph.addNode("b");
+        Node c = graph.addNode("c");
+        graph.addEdge(r, a);
+        graph.addEdge(a, c);
+        graph.addEdge(r, b);
+        graph.addEdge(b, c);
 
 
-//        System.out.println(graph.includeLoop());
+        System.out.println(graph.includeLoop());
 
 
-        System.out.println(graph.printDependencyRoute());
+//        System.out.println(graph.printDependencyRoute());
 
     }
 }
