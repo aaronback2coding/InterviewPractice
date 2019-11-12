@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5ba2309-78d5-447c-ba83-ba7d034624cc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../BSTArray/out/production/BSTArray/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BSTArray/out/production/BSTArray/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BSTArray/out/production/BSTArray/com/company/Tree$nodePrintInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BSTArray/out/production/BSTArray/com/company/Tree$nodePrintInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BSTArray/out/production/BSTArray/com/company/Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BSTArray/out/production/BSTArray/com/company/Tree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BSTArray/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BSTArray/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

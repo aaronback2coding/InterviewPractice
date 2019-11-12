@@ -2,6 +2,12 @@ package com.company;
 
 //----------------------------------------------------------------------------------------------------------------
 // Question 1: print out all possible arrays that generate a BST
+// learning 1: break down problem in to managable pieces - help you focus, do it right, and test it easily. this is the
+//  concept of componentization
+// learning 2: do not get lost in the weed. for recursion, once you reach some solvable initial state, solve it,
+//    other than further passing the complexity to null state management
+// learning 3: the feeling of doing the right solution - you partition the problem right, every small funciton is clear
+//    understood, and the flow is straight forward. when you are coding like this, you know you can get the result right!
 //----------------------------------------------------------------------------------------------------------------
 
 
@@ -62,7 +68,117 @@ class Node<T extends Comparable<T>> {
         }
         return null;
     }
+}
+// This whole pos thing is really not necessary, as the whole merger algorithm can be done with just one function.
+// the concept of realizing that there is duplciation in position shifting is good and spot on, but the solution is inefficient
+class ListOrderMerger<T> {
+    class Pos<T> {
+        T val = null;
+    }
+    private int leftLength = 0;
+    private int rightLength = 0;
+    LinkedList<Pos<T>> left;
+    LinkedList<Pos<T>> right;
+    LinkedList<LinkedList<Pos<T>>> merged;
 
+
+    public ListOrderMerger(int leftLength, int rightLength) {
+        this.leftLength = leftLength;
+        this.rightLength = rightLength;
+        this.left = new LinkedList<Pos<T>>();
+        this.right = new LinkedList<Pos<T>>();
+    }
+
+    private LinkedList<LinkedList<Pos<T>>> addOne(Pos<T> one, LinkedList<Pos<T>> list) {
+        LinkedList<LinkedList<Pos<T>>> result = new LinkedList<LinkedList<Pos<T>>>();
+        for(int i = 0; i <= list.size(); i++) {
+            LinkedList<Pos<T>> temp = new LinkedList<Pos<T>>();
+            for(int j = 0; j < list.size(); j++) {
+                if(i == j)
+                    temp.add(one);
+                temp.add(list.get(j));
+            }
+            if(i == list.size()) {
+                temp.add(one);
+            }
+            result.add(temp);
+        }
+        return result;
+    }
+
+    private LinkedList<LinkedList<Pos<T>>> _merge(LinkedList<Pos<T>> left, LinkedList<Pos<T>> right) {
+        //initial state
+        if(left.size() == 0)
+            return null;
+        if(right.size() == 0)
+            return null;
+        if(left.size() == 1) {
+            return addOne(left.get(0), right);
+        }
+        if(right.size() == 1) {
+            return addOne(right.get(0), left);
+        }
+
+        //left first
+        LinkedList<Pos<T>> leftCopy = (LinkedList<Pos<T>>) left.clone();
+        LinkedList<Pos<T>> rightCopy = (LinkedList<Pos<T>>) right.clone();
+
+        Pos<T> leftFirst = leftCopy.remove();
+        LinkedList<LinkedList<Pos<T>>> leftFirstResults = _merge(leftCopy, rightCopy);
+        for(LinkedList<Pos<T>> item: leftFirstResults) {
+            item.addFirst(leftFirst);
+        }
+
+        //right first
+        leftCopy = (LinkedList<Pos<T>>) left.clone();
+        rightCopy = (LinkedList<Pos<T>>) right.clone();
+
+        Pos<T> rightFirst = rightCopy.remove();
+        LinkedList<LinkedList<Pos<T>>> rightFirstResults = _merge(leftCopy, rightCopy);
+        for(LinkedList<Pos<T>> item: rightFirstResults) {
+            item.addFirst(rightFirst);
+        }
+        leftFirstResults.addAll(rightFirstResults);
+        return leftFirstResults;
+    }
+
+    public void initializeMerger() {
+        for(int i = 0; i < leftLength; i++)  {
+            left.add(new Pos<T>());
+        }
+        for(int i = 0; i < rightLength; i++)  {
+            right.add(new Pos<T>());
+        }
+        merged = _merge(left, right);
+    }
+
+    //Link list is a new copy, the actual T object is just reference. Left and right should not change.
+    public LinkedList<LinkedList<T>> merge(LinkedList<T> leftT, LinkedList<T> rightT) {
+        if(leftT.size() != leftLength)
+            return null;
+        if(rightT.size() != rightLength)
+            return null;
+        int i = 0;
+        for(T item: leftT) {
+            left.get(i).val = item;
+            i++;
+        }
+        i = 0;
+        for(T item: rightT) {
+            right.get(i).val = item;
+            i++;
+        }
+
+        LinkedList<LinkedList<T>> results = new LinkedList<LinkedList<T>>();
+        for(LinkedList<Pos<T>> item: merged) {
+            LinkedList<T> temp = new LinkedList<T>();
+            for(Pos<T> pos: item) {
+                temp.add(pos.val);
+            }
+            results.add(temp);
+        }
+        return results;
+    }
 }
 
 class Tree<T extends Comparable<T>> {
@@ -222,22 +338,6 @@ class Tree<T extends Comparable<T>> {
     }
 
     private LinkedList<LinkedList<T>> _merge(LinkedList<LinkedList<T>> left, LinkedList<LinkedList<T>> right) {
-        // thinking through the state creation and change in this thread
-        // this is creating a merged list. so it should return a new copy of data, instead of reusing existing one
-        // shall the input parameter be immutable?
-                // it can be used in the parent calling environment?
-                    // there are multiple intances calling this. either we make it const, or we make copies in the calling site
-                // it can be accessed as global varialbes by other call instances?
-                    //this is not a concern as the data we are operating is local
-        // so the conclusion is: create new copy upon return  + have extra copy on write to ensure data is valid, but allow
-        // input parameter to be changed, to save one extra copy of data.
-
-        System.out.println("----------merge------------");
-        System.out.println("left");
-        printLL(left);
-        System.out.println("right");
-        printLL(right);
-
 
         LinkedList<LinkedList<T>> leftNew = deepClone(left);
         LinkedList<LinkedList<T>> rightNew = deepClone(right);
@@ -247,54 +347,21 @@ class Tree<T extends Comparable<T>> {
         if(right == null)
             return leftNew;
 
-
-        if (left.size() == 1 && left.getFirst().size() == 0)  {
-            return rightNew;
+        if(left.size() == 0 || right.size() == 0) {
+            return null;
         }
 
-        if(right.size() == 1 && right.getFirst().size() == 0) {
-            return leftNew;
-        }
+        ListOrderMerger<T> merger = new ListOrderMerger<T>(left.peek().size(), right.peek().size());
+        merger.initializeMerger();
 
-        //first element from left
-        LinkedList<LinkedList<T>> arraysLeftFirst = new LinkedList<LinkedList<T>>();
-        for(LinkedList<T> array: leftNew) {
-            if(array.size() != 0) {
-                T firstElement = array.removeFirst();
-                LinkedList<LinkedList<T>> arrayInList = new  LinkedList<LinkedList<T>>();
-                arrayInList.add(array);
-                LinkedList<LinkedList<T>> results = _merge(arrayInList, rightNew);
-                for (LinkedList<T> result: results) {
-                    result.addFirst(firstElement);
-                }
-                arraysLeftFirst.addAll(results);
+        LinkedList<LinkedList<T>> results = new LinkedList<LinkedList<T>>();
+
+        for(LinkedList<T> leftItem : left) {
+            for(LinkedList<T> rightItem : right) {
+                results.addAll(merger.merge(leftItem, rightItem));
             }
         }
-
-        //first element from right
-        LinkedList<LinkedList<T>> arraysRightFirst = new LinkedList<LinkedList<T>>();
-        for(LinkedList<T> array: right) {
-            if(array.size() != 0) {
-                T firstElement = array.removeFirst();
-                LinkedList<LinkedList<T>> arrayInList = new  LinkedList<LinkedList<T>>();
-                arrayInList.add(array);
-                LinkedList<LinkedList<T>> results = _merge(left, arrayInList);
-                for (LinkedList<T> result: results) {
-                    result.addFirst(firstElement);
-                }
-                arraysRightFirst.addAll(results);
-            }
-        }
-
-        //combine them together:
-        arraysLeftFirst.addAll(arraysRightFirst);
-
-
-//        System.out.println("result: ");
-//        printLL(arraysLeftFirst);
-
-
-        return arraysLeftFirst;
+        return results;
     }
 
     private LinkedList<LinkedList<T>> _getBSTArray(Node<T> node) {
@@ -603,10 +670,27 @@ class Tree<T extends Comparable<T>> {
 public class Main {
 
     public static void main(String[] args) {
-
+//        LinkedList<Integer> left = new LinkedList<>();
+//        left.add(1);
+//        left.add(2);
+//        left.add(3);
+//
+//        LinkedList<Integer> right = new LinkedList<>();
+//        right.add(4);
+//        right.add(5);
+//        right.add(6);
+//
+//        ListOrderMerger<Integer> merger = new ListOrderMerger<Integer>(3, 3);
+//        merger.initializeMerger();
+//        LinkedList<LinkedList<Integer>> ll = merger.merge(left, right);
+//
+//        if(ll == null)
+//            return;
+//        for(LinkedList<Integer> item: ll) {
+//            System.out.println(item);
+//        }
 
         Integer[] arr0 = {3, 1, 5, 2, 4, 6, 0};
-
         Tree tree = Tree.createBST(arr0);
         tree.printTree();
         System.out.println("------------------------");
