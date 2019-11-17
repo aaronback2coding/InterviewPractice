@@ -3,6 +3,10 @@ package aaron.javaramp;
 //--------------------------------------------------------------------------------------------------------
 // print prime
 //--------------------------------------------------------------------------------------------------------
+// learning - practice the basic operation so well that it becomes your natural instinct and reaction.
+// leanring - if you will have data structure and multiple functions accessing the same data structure, it might be better
+// to just keep then together in a class.
+
 
 
 import java.util.ArrayList;
@@ -49,16 +53,63 @@ class PrimeFinder {
         }
         return primes;
     }
+
+
 }
 
+//number -> isPrime[number - 1]
 public class Main {
 
+    public static ArrayList<Integer> getPrimes(int number) {
+        ArrayList<Integer> results = new ArrayList<>();
+
+        if(number <= 0)
+            return null;
+        if(number == 1) {
+            results.add(1);
+            return results;
+        }
+        if(number == 2) {
+            results.add(1);
+            results.add(2);
+            return results;
+        }
+
+        boolean[] isPrime = new boolean[number];
+        for( int i = 2; i <= Math.sqrt((double) number); i++) {
+            for (int j = i * 2; j <= number; j += i) {
+                isPrime[j - 1] = true;
+            }
+        }
+
+        for(int i = 1; i <= number; i++) {
+            if(!isPrime[i - 1])
+                results.add(i);
+        }
+        return results;
+    }
+
+
     public static void main(String[] args) {
-        PrimeFinder finder = new PrimeFinder(10000);
+        int number = 1000000;
+
+        long start1 = System.currentTimeMillis();
+        PrimeFinder finder = new PrimeFinder(number);
         ArrayList<Integer> primes = finder.getPrimes();
+        long end1 = System.currentTimeMillis();
         if (primes != null) {
             System.out.println(primes);
         }
+        System.out.println(end1 - start1);
+
+        long start2 = System.currentTimeMillis();
+        ArrayList<Integer> primes2 = getPrimes(number);
+        long end2 = System.currentTimeMillis();
+        if (primes2 != null) {
+            System.out.println(primes2);
+        }
+        System.out.println(end2 - start2);
+
 
     }
 
