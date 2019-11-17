@@ -6,6 +6,10 @@ package aaron.javaramp;
 // learning - practice the basic operation so well that it becomes your natural instinct and reaction.
 // leanring - if you will have data structure and multiple functions accessing the same data structure, it might be better
 // to just keep then together in a class.
+// learning - build up you intuition to spot waste (unnecessary duplicated operation) and design your algorithm efficiently
+// the old way - for every number, iterate through all existing primes and validate whether it is a prime
+// the waste - first, you do not need to validate every number. you only need to worry about the ones that cannot be mupltiplied
+// by the existing primes.
 
 
 
@@ -50,6 +54,19 @@ class PrimeFinder {
         for(int i = 3; i <= n; i++ ) {
             if(isPrime(i))
                 primes.add(i);
+//            if(i>200000)
+//                System.out.println("20000");
+//            if(i>300000)
+//                System.out.println("300000");
+//            if(i>500000)
+//                System.out.println("500000");
+//            if(i>700000)
+//                System.out.println("700000");
+//            if(i>900000)
+//                System.out.println("900000");
+//            if(i>990000)
+//                System.out.println("990000");
+
         }
         return primes;
     }
@@ -93,22 +110,35 @@ public class Main {
     public static void main(String[] args) {
         int number = 1000000;
 
+        System.out.println("------------------------------");
+        System.out.println("Method 2");
+        long start2 = System.currentTimeMillis();
+        ArrayList<Integer> primes2 = getPrimes(number);
+        long end2 = System.currentTimeMillis();
+        if (primes2 != null) {
+            System.out.println(primes2.size());
+            System.out.println(primes2.get(0));
+//            System.out.println(primes2);
+        }
+        System.out.println(end2 - start2);
+        System.out.println("------------------------------");
+
+        System.out.println("------------------------------");
+        System.out.println("Method 1");
         long start1 = System.currentTimeMillis();
         PrimeFinder finder = new PrimeFinder(number);
         ArrayList<Integer> primes = finder.getPrimes();
         long end1 = System.currentTimeMillis();
         if (primes != null) {
-            System.out.println(primes);
+            System.out.println(primes.size());
+            System.out.println(primes.get(0));
+//            System.out.println(primes);
         }
         System.out.println(end1 - start1);
+        System.out.println("------------------------------");
 
-        long start2 = System.currentTimeMillis();
-        ArrayList<Integer> primes2 = getPrimes(number);
-        long end2 = System.currentTimeMillis();
-        if (primes2 != null) {
-            System.out.println(primes2);
-        }
-        System.out.println(end2 - start2);
+
+
 
 
     }
