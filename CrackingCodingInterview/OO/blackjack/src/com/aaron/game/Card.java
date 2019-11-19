@@ -2,12 +2,16 @@ package com.aaron.game;
 
 
 public class Card {
-    private int val;
-    private Suit suit;
+    protected int val;
+    protected Suit suit;
 
     public Card(int val, Suit suit) {
         this.val = val;
         this.suit = suit;
+    }
+
+    public int getVal() {
+        return val;
     }
 
     public String getStr() {

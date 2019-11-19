@@ -3,9 +3,9 @@ package com.aaron.game;
 import java.util.ArrayList;
 
 public class Game <T extends Hand> {
-    private Deck deck;
-    private ArrayList<T> hands;
-    private int numberofHands = 0;
+    protected Deck deck;
+    protected ArrayList<T> hands;
+    protected int numberofHands = 0;
 
     public Game(int numberofHands, HandFactory<T> handfactory) {
         this.numberofHands = numberofHands;

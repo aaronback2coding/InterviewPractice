@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         BlackJackHandFactory handfactory = new BlackJackHandFactory();
         BlackJackGame game = new BlackJackGame(5, handfactory);
-        game.printHands();
+        game.play();
 
 
     }

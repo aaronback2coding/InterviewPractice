@@ -1,6 +1,7 @@
 package com.aaron.game;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Deck {
     private ArrayList<Card> cards;
@@ -23,6 +24,15 @@ public class Deck {
     }
 
     public void shuffle() {
+        Random rand = new Random();
+
+        for (int i = 0; i < cards.size(); i++) {
+            int j = rand.nextInt(cards.size() - 1);
+            Card card1 = cards.get(i);
+            Card card2 = cards.get(j);
+            cards.set(i, card2);
+            cards.set(j, card1);
+        }
         return;
     }
 
