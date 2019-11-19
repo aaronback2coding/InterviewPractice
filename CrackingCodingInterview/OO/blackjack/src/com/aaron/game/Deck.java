@@ -14,8 +14,23 @@ public class Deck {
 
     }
 
-    public Deck(ArrayList<Card> cards) {
+    public Deck() {
         this.cards = new ArrayList<Card>();
+        initSuit(Suit.CLUB);
+        initSuit(Suit.DIAMONDS);
+        initSuit(Suit.HEARTS);
+        initSuit(Suit.SPADERS);
+    }
+
+    public void shuffle() {
+        return;
+    }
+
+    public Card dealCards() {
+        int size = cards.size();
+        if(size == 0)
+            return null;
+        return cards.remove(size - 1);
     }
 }
 

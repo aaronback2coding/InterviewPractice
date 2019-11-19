@@ -10,6 +10,7 @@ public class Hand {
     }
 
     public void print() {
+        System.out.println("Hand");
         for(Card card: cards) {
             System.out.println(card.getStr());
         }

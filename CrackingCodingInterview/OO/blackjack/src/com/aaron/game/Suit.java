@@ -1,5 +1,5 @@
 package com.aaron.game;
-enum Suit
+public enum Suit
 {
     CLUB, DIAMONDS, HEARTS, SPADERS;
 }
