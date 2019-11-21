@@ -1,4 +1,4 @@
-package com.aaron;
+package com.company;
 // Learning
 //  the core concept of OO design:
 //      model the design as objects and their associations - game, hand, deck, card
@@ -15,16 +15,16 @@ package com.aaron;
 
 
 
-import com.aaron.blackjack.BlackJackGame;
-import com.aaron.blackjack.BlackJackHandFactory;
+
 
 public class Main {
 
     public static void main(String[] args) {
-        BlackJackHandFactory handfactory = new BlackJackHandFactory();
-        BlackJackGame game = new BlackJackGame(5, handfactory);
-        game.play();
-
-
+        Puzzle puzzle = new Puzzle(10);
+        puzzle.print();
+        puzzle.shuffle();
+        puzzle.print();
+        puzzle.solve();
+        puzzle.print();
     }
 }
