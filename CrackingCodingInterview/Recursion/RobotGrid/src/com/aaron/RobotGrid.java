@@ -1,7 +1,9 @@
 package com.aaron;
 
 import java.lang.reflect.Array;
+import java.nio.charset.CoderResult;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class RobotGrid {
@@ -9,6 +11,17 @@ public class RobotGrid {
     private int n = 0;
     private int numberofBlockers = 0;
     private char[][] grid = null;
+    private HashMap<Coordinate, ArrayList<Direction>> mem = null;
+
+    class Coordinate {
+        int x = 0;
+        int y = 0;
+
+        public Coordinate(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
 
     public RobotGrid(int m, int n, int numberofBlockers) {
         this.m = m;
@@ -67,7 +80,17 @@ public class RobotGrid {
     }
 
     public ArrayList<Direction> getPath() {
+        mem = new HashMap<Coordinate, ArrayList<Direction>>();
         return _getPath(0, 0);
+    }
+
+    private boolean memorize(int x, int y, ArrayList<Direction> result) {
+        if(mem == null || result ==  null)
+            return false;
+        Coordinate c = new Coordinate(x, y);
+        ArrayList<Direction> resultCopy = (ArrayList<Direction>)result.clone();
+        mem.put(c, resultCopy);
+        return true;
     }
 
     private ArrayList<Direction> _getPath(int x, int y) {
@@ -83,14 +106,21 @@ public class RobotGrid {
             return result;
         }
 
+        Coordinate c = new Coordinate(x, y);
+        ArrayList<Direction> memorizedResult = mem.get(c);
+        if(memorizedResult != null)
+            return memorizedResult;
+
         ArrayList<Direction> rightResult = _getPath(x + 1, y);
         if(rightResult != null) {
+            memorize(x+1, y, rightResult);
             rightResult.add(Direction.RIGHT);
             return rightResult;
         }
 
         ArrayList<Direction> downResult = _getPath(x, y+1);
         if(downResult != null) {
+            memorize(x, y+1, downResult);
             downResult.add(Direction.DOWN);
             return downResult;
         }
