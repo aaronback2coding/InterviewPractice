@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed4a1800-5818-4a52-8103-f389a3e9f80e" name="Default Changelist" comment="" />
+    <list default="true" id="0dc82f08-f551-473a-a0ce-4b4a32f8e7f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../MagicIndex/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MagicIndex/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,13 +20,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/aaron/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="360">
+              <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
               <folding>
-                <element signature="e#696#697#0" expanded="true" />
-                <element signature="e#756#757#0" expanded="true" />
-                <element signature="e#190#191#0" expanded="true" />
-                <element signature="e#251#252#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,7 +49,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="3008" />
     <option name="height" value="1692" />
   </component>
@@ -61,13 +60,9 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -84,7 +79,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.aaron.Main" />
-      <module name="MagicIndex" />
+      <module name="Subset" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
@@ -103,23 +98,24 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ed4a1800-5818-4a52-8103-f389a3e9f80e" name="Default Changelist" comment="" />
-      <created>1574468594997</created>
+      <changelist id="0dc82f08-f551-473a-a0ce-4b4a32f8e7f9" name="Default Changelist" comment="" />
+      <created>1574541631162</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1574468594997</updated>
+      <updated>1574541631162</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="3008" height="1692" extended-state="0" />
+    <frame x="0" y="23" width="3008" height="1602" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983142" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983142" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -128,8 +124,8 @@
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30702835" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39950678" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32980132" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -146,13 +142,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/aaron/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        <state relative-caret-position="360">
+          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
           <folding>
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#756#757#0" expanded="true" />
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
