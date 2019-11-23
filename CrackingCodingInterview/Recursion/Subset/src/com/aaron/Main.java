@@ -3,6 +3,11 @@ package com.aaron;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+// learning - on the surface, p(n) = p(n/2) + p(n/2) is O(log(n)) and therefore more efficient than p(n) = p(n-1) + 1, which is
+//  O(n). this is true in cases where p(n/2) + p(n/2)'s complexity is as same as p(n-1) + 1, but in this case, the first one is
+//  actually more complex thant the second one. As both of them in the end are decided by the number of possible subset combinations
+//  so their complexity is actually the same, which is n * 2 power by n.
+
 public class Main<T> {
 
 
@@ -25,6 +30,7 @@ public class Main<T> {
                 set1.add(item);
             else
                 set2.add(item);
+            i++;
         }
 
         // get subsset from each half and merge them together
@@ -51,10 +57,15 @@ public class Main<T> {
         set.add("b");
         set.add("c");
         set.add("d");
+        set.add("e");
+        set.add("f");
+        set.add("g");
+
         ArrayList<HashSet<String>> subsets = getSubset(set);
         if(subsets == null) {
             return;
         }
+        System.out.println(subsets.size());
         for(HashSet<String> subset: subsets) {
             System.out.println(subset);
         }
