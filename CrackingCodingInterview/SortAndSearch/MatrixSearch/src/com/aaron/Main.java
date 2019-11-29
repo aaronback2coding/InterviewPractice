@@ -2,7 +2,7 @@
 //  have confidence on your thinking capability. be patient, think clearly about the ambiguity you are dealing with, and you
 //  can and will turn them into clarity / assumptions
 //   you have your code right when you can think clearly what you are doing with your code.
-//      your intuition is important. 
+//      your intuition is important.
 
 package com.aaron;
 
