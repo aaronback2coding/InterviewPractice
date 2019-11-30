@@ -9,6 +9,7 @@ public class Main {
     static class Thread1 extends Thread {
         @Override
         public void run() {
+
             synchronized (str1) {
                 System.out.println("locking " + str1 + "for 500 ms");
                 try {
