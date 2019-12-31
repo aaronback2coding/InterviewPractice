@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f15420ed-f27b-4801-8555-a9a95d128032" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aaron/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aaron/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,12 +23,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="533" />
-    <option name="y" value="112" />
-    <option name="width" value="3360" />
-    <option name="height" value="1800" />
   </component>
   <component name="ProjectId" id="1TqMAoXJrqcDAMxT4ajxG9U33Tl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
