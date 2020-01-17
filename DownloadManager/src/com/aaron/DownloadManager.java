@@ -6,7 +6,7 @@ import java.util.Queue;
 public class DownloadManager {
     private static DownloadManager downloadManager = null;
 
-    static public DownloadManager getIntance() {
+    static public DownloadManager getInstance() {
         if (downloadManager == null)
             downloadManager = new DownloadManager();
 
@@ -14,7 +14,7 @@ public class DownloadManager {
     }
 
     private DownloadManager() {
-        this.networkManager = NetworkManager.getIntance();
+        this.networkManager = NetworkManager.getInstance();
     }
 
     private NetworkManager networkManager;
@@ -22,12 +22,13 @@ public class DownloadManager {
     public DownloadContext download(
 //            ConnectionContext connContext,
 //            Priority pri,
-//            DownloadProgressCallBack callback,
             String URL,
-            String localFile
+            String localFile,
+            DownloadProgressCallback callback
     ) {
-        return null;
+        DownloadContext downloadContext = new DownloadContext(URL, localFile, callback);
+        networkManager.add(downloadContext);
+        return downloadContext;
     }
-
 }
 
