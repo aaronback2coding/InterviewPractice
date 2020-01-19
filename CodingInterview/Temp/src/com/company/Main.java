@@ -28,5 +28,9 @@ public class Main {
         for(int i = 0; i < 9; i++) {
             System.out.println(hp.remove());
         }
+
+//        Grid g = new Grid(10);
+//        g.test();
+        
     }
 }
